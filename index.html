@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FortiGate Web Filtering | HT08</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="preloader" id="preloader">
+    <div class="preloader-core">
+      <div class="preloader-logo">FG</div>
+      <div class="preloader-ring"></div>
+    </div>
+    <div class="preloader-bar"><span></span></div>
+    <p>Initializing Security Systems...</p>
+  </div>
+
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <canvas id="matrixRain" aria-hidden="true"></canvas>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header class="navbar" id="navbar">
+    <a class="brand" href="#hero" aria-label="Inicio">
+      <span class="brand-mark"></span>
+      <span>FortiGate HT08</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" aria-label="Navegacion principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#operaciones">Operaciones</a>
+      <a href="#showcase">Showcase</a>
+      <a href="#reflexion">Reflexion</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="hero">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="12601884_1920_1080_30fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Seguridad web corporativa</p>
+        <h1>Control inteligente de trafico web con FortiGate NGFW</h1>
+        <p class="hero-text">
+          Una experiencia visual basada en el PDF HT08: modos de inspeccion,
+          filtrado web, politicas NGFW Policy-Based y buenas practicas para
+          proteger entornos virtualizados.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#operaciones">Explorar practica</a>
+          <a class="btn ghost" href="#showcase">Ver PDF</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" data-depth="0.18">
+        <div class="holo-ring ring-a"></div>
+        <div class="holo-ring ring-b"></div>
+        <div class="security-core">
+          <div class="core-orbit orbit-one"><span></span><span></span></div>
+          <div class="core-orbit orbit-two"><span></span><span></span></div>
+          <div class="core-panel">
+            <span class="status-dot"></span>
+            <strong>NGFW Policy-Based</strong>
+            <small>HTTP / HTTPS inspection</small>
+          </div>
+        </div>
+        <div class="floating-chip chip-a">Flow-based</div>
+        <div class="floating-chip chip-b">Proxy-based</div>
+        <div class="floating-chip chip-c">Web Filter</div>
+      </div>
+    </section>
+
+    <section class="parallax-zone section" id="parallax">
+      <div class="parallax-layer layer-back" data-parallax="0.12"></div>
+      <div class="parallax-layer layer-mid" data-parallax="0.24"></div>
+      <div class="parallax-layer layer-front" data-parallax="0.38"></div>
+      <div class="hologram-stack reveal">
+        <p class="eyebrow">Parallax 3D</p>
+        <h2>Capas holograficas para visualizar profundidad de red</h2>
+        <p>El trafico web se mueve entre usuarios, firewall, politicas y nube. Cada capa representa una etapa de defensa antes de permitir o bloquear contenido.</p>
+      </div>
+    </section>
+
+    <section class="mega-dashboard section reveal" id="dashboard">
+      <video class="dashboard-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="12595758_3840_2160_30fps (1).mp4" type="video/mp4">
+      </video>
+      <div class="dashboard-video-overlay" aria-hidden="true"></div>
+      <div class="section-heading">
+        <p class="eyebrow">Centro de mando visual</p>
+        <h2>Monitoreo futurista del filtrado web corporativo</h2>
+      </div>
+      <div class="dashboard-shell">
+        <div class="network-map">
+          <div class="node node-lan">
+            <span>LAN</span>
+            <small>Usuarios</small>
+          </div>
+          <div class="traffic-stream stream-in">
+            <i></i>
+            <i></i>
+            <b>trafico interno</b>
+          </div>
+          <div class="firewall-tower">
+            <div class="tower-core">
+              <strong>FortiGate-VM</strong>
+              <small>NGFW + Web Filter</small>
+            </div>
+            <span class="shield-arc arc-one"></span>
+            <span class="shield-arc arc-two"></span>
+          </div>
+          <div class="traffic-stream stream-out">
+            <i></i>
+            <i class="blocked"></i>
+            <b>permitir / bloquear</b>
+          </div>
+          <div class="node node-wan">
+            <span>WAN</span>
+            <small>Internet</small>
+          </div>
+        </div>
+
+        <div class="threat-panel">
+          <div class="radar">
+            <span></span>
+            <i class="ping ping-a"></i>
+            <i class="ping ping-b"></i>
+            <i class="ping ping-c"></i>
+          </div>
+          <div>
+            <h3>Radar de inspeccion</h3>
+            <p>Representa el analisis HTTP/HTTPS, categorias web y control por politica antes de permitir o bloquear el trafico.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card tilt-card">
+          <strong data-count="78">0</strong>
+          <span>Categorias evaluadas</span>
+        </article>
+        <article class="stat-card tilt-card">
+          <strong data-count="42">0</strong>
+          <span>Riesgos bloqueados</span>
+        </article>
+        <article class="stat-card tilt-card">
+          <strong data-count="96">0</strong>
+          <span>Control de politicas</span>
+        </article>
+        <article class="stat-card tilt-card">
+          <strong data-count="24">0</strong>
+          <span>Monitoreo continuo</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="live-analytics section" id="analitica">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Real-time analytics</p>
+        <h2>Graficos animados de trafico y amenazas bloqueadas</h2>
+      </div>
+      <div class="analytics-grid">
+        <article class="chart-panel reveal">
+          <div class="panel-title">
+            <span>Live Traffic</span>
+            <strong>Paquetes / segundo</strong>
+          </div>
+          <canvas id="trafficChart" height="220"></canvas>
+        </article>
+        <article class="chart-panel reveal">
+          <div class="panel-title">
+            <span>Blocked Ratio</span>
+            <strong>Filtro web</strong>
+          </div>
+          <canvas id="donutChart" height="220"></canvas>
+        </article>
+        <article class="attack-panel reveal">
+          <div class="panel-title">
+            <span>Security Events</span>
+            <strong>Ataques bloqueados</strong>
+          </div>
+          <div class="attack-feed">
+            <div><b>Malware</b><span class="blocked-state">Bloqueado</span></div>
+            <div><b>Phishing</b><span class="detected-state">Detectado</span></div>
+            <div><b>Torrent</b><span class="denied-state">Denegado</span></div>
+            <div><b>Streaming no laboral</b><span class="blocked-state">Bloqueado</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="ai-engine section" id="ai">
+      <video class="ai-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="13794793_3840_2160_30fps.mp4" type="video/mp4">
+      </video>
+      <div class="ai-video-overlay" aria-hidden="true"></div>
+      <div class="section-heading reveal">
+        <p class="eyebrow">AI Threat Detection Engine</p>
+        <h2>Motor inteligente para detectar patrones sospechosos</h2>
+      </div>
+      <div class="ai-layout">
+        <div class="neural-core reveal" role="img" aria-label="Motor inteligente de deteccion con entradas, analisis y respuesta">
+          <span class="scan-beam"></span>
+          <span class="engine-orbit orbit-one"></span>
+          <span class="engine-orbit orbit-two"></span>
+          <span class="signal-line signal-user"></span>
+          <span class="signal-line signal-web"></span>
+          <span class="signal-line signal-ssl"></span>
+          <span class="signal-line signal-policy"></span>
+          <span class="data-pulse pulse-a"></span>
+          <span class="data-pulse pulse-b"></span>
+          <span class="data-pulse pulse-c"></span>
+          <div class="engine-core">
+            <span>AI</span>
+            <small>Threat score</small>
+            <strong>91%</strong>
+          </div>
+          <div class="ai-node node-user"><b>Usuario</b><small>frecuencia</small></div>
+          <div class="ai-node node-web"><b>Destino</b><small>reputacion</small></div>
+          <div class="ai-node node-ssl"><b>SSL</b><small>inspeccion</small></div>
+          <div class="ai-node node-policy"><b>Politica</b><small>aprendizaje</small></div>
+        </div>
+        <div class="ai-copy reveal">
+          <h3>Analisis predictivo de amenazas</h3>
+          <p>La IA simula correlacion de eventos: reputacion del destino, categoria web, frecuencia de solicitudes y comportamiento del usuario. El resultado alimenta reglas mas precisas y menos falsos positivos.</p>
+          <div class="ai-tags">
+            <span>Anomaly score 91%</span>
+            <span>SSL scan active</span>
+            <span>Policy learning</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="global-map section" id="mapa">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Global Cybersecurity Map</p>
+        <h2>Cyberthreat live map inspirado en SOC real</h2>
+      </div>
+      <div class="cybermap-board reveal">
+        <div class="kaspersky-only">
+          <span class="kaspersky-orbit"></span>
+          <p class="eyebrow">Demo oficial</p>
+          <h3>Kaspersky Cyberthreat Live Map</h3>
+          <p>Abre el mapa mundial real de ciberamenazas dentro de una ventana integrada en esta landing.</p>
+          <button class="kaspersky-main-button" id="kasperskyLaunch">Kaspersky</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="kaspersky-modal" id="kasperskyModal" aria-hidden="true">
+      <div class="kaspersky-window">
+        <div class="kaspersky-topbar">
+          <div>
+            <span>Kaspersky Cyberthreat Live Map</span>
+            <strong>Vista integrada del demo oficial</strong>
+          </div>
+          <div class="kaspersky-actions">
+            <a href="https://cybermap.kaspersky.com/" target="_blank" rel="noopener">Abrir externo</a>
+            <button id="kasperskyClose" aria-label="Cerrar ventana Kaspersky">×</button>
+          </div>
+        </div>
+        <iframe
+          id="kasperskyFrame"
+          title="Kaspersky Cyberthreat Live Map"
+          data-src="https://cybermap.kaspersky.com/es/widget/dynamic/dark"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allow="fullscreen; autoplay; encrypted-media"
+        ></iframe>
+        <div class="kaspersky-fallback">
+          Si el demo no aparece, el sitio puede estar bloqueando la carga dentro de ventanas embebidas.
+          Usa “Abrir externo” para verlo completo.
+        </div>
+      </div>
+    </div>
+
+    <section class="intro section reveal" id="contexto">
+      <div class="section-heading">
+        <p class="eyebrow">Caso del PDF</p>
+        <h2>El reto de la empresa tecnologica</h2>
+      </div>
+      <p>
+        La organizacion detecta una baja de productividad por uso inadecuado
+        de Internet en horario laboral. El objetivo es configurar FortiGate-VM
+        para bloquear categorias no relacionadas con el trabajo, como redes
+        sociales o streaming, y reforzar la seguridad del entorno corporativo.
+      </p>
+    </section>
+
+    <section class="architecture section" id="arquitectura">
+      <video class="architecture-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="14165282_1920_1080_30fps.mp4" type="video/mp4">
+      </video>
+      <div class="architecture-video-overlay" aria-hidden="true"></div>
+      <div class="section-heading reveal">
+        <p class="eyebrow">Arquitectura de defensa</p>
+        <h2>Propiedades ampliadas del proyecto FortiGate</h2>
+      </div>
+      <div class="architecture-grid">
+        <article class="architecture-visual reveal">
+          <div class="fortigate-model" role="img" aria-label="Modelo visual 3D de equipo FortiGate">
+            <div class="device-face">
+              <div class="device-brand">FortiGate-VM</div>
+              <div class="device-screen">
+                <span></span>
+                <b>NGFW</b>
+              </div>
+              <div class="device-ports">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+              <div class="device-leds">
+                <i></i><i></i><i></i>
+              </div>
+            </div>
+            <div class="device-side"></div>
+          </div>
+          <div class="device-platform"></div>
+        </article>
+        <article class="feature-stack reveal">
+          <div>
+            <span>01</span>
+            <h3>Filtrado por categorias</h3>
+            <p>Bloquea redes sociales, streaming, malware, juegos o contenido riesgoso segun el perfil corporativo.</p>
+          </div>
+          <div>
+            <span>02</span>
+            <h3>Inspeccion SSL</h3>
+            <p>Permite observar trafico HTTPS para aplicar politicas incluso cuando el contenido viaja cifrado.</p>
+          </div>
+          <div>
+            <span>03</span>
+            <h3>Control por identidad</h3>
+            <p>Las reglas se pueden adaptar por usuario, grupo, aplicacion, horario y destino.</p>
+          </div>
+          <div>
+            <span>04</span>
+            <h3>Mejora continua</h3>
+            <p>Los registros ayudan a ajustar excepciones, reducir falsos positivos y mejorar la seguridad futura.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="services section" id="servicios">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Servicios clave</p>
+        <h2>Capas de control para una red mas segura</h2>
+      </div>
+      <div class="card-grid">
+        <article class="service-card reveal tilt-card">
+          <span class="card-number">01</span>
+          <h3>Inspeccion Flow-Based</h3>
+          <p>Analiza el trafico en tiempo real con menor latencia. Es ideal cuando el rendimiento y la velocidad son prioridad.</p>
+        </article>
+        <article class="service-card reveal tilt-card">
+          <span class="card-number">02</span>
+          <h3>Inspeccion Proxy-Based</h3>
+          <p>Examina sesiones completas y permite politicas de filtrado mas detalladas para analisis profundo de contenido.</p>
+        </article>
+        <article class="service-card reveal tilt-card">
+          <span class="card-number">03</span>
+          <h3>NGFW Policy-Based</h3>
+          <p>Permite aplicar reglas por usuario, aplicacion y categoria web, creando un control mas granular y moderno.</p>
+        </article>
+        <article class="service-card reveal tilt-card">
+          <span class="card-number">04</span>
+          <h3>Perfil Web Corporativo</h3>
+          <p>Bloquea categorias no deseadas, reduce riesgos y ayuda a mantener la productividad en ambientes virtualizados.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="visual-lab section" id="graficos">
+      <video class="visual-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="13104809_1920_1080_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="visual-video-overlay" aria-hidden="true"></div>
+      <div class="section-heading reveal">
+        <p class="eyebrow">Graficos del proyecto</p>
+        <h2>Panel ejecutivo de seguridad y filtrado web</h2>
+      </div>
+
+      <div class="command-board reveal">
+        <article class="risk-map">
+          <div class="panel-title">
+            <span>Threat Intelligence</span>
+            <strong>Matriz de categorias</strong>
+          </div>
+          <div class="heat-grid" aria-label="Mapa de calor de categorias web">
+            <span class="heat low"></span><span class="heat mid"></span><span class="heat high"></span><span class="heat max"></span>
+            <span class="heat mid"></span><span class="heat max"></span><span class="heat low"></span><span class="heat high"></span>
+            <span class="heat high"></span><span class="heat mid"></span><span class="heat max"></span><span class="heat low"></span>
+            <span class="heat max"></span><span class="heat high"></span><span class="heat mid"></span><span class="heat max"></span>
+          </div>
+          <div class="risk-list">
+            <div><b>Malware</b><i class="severity critical">critico</i></div>
+            <div><b>Streaming</b><i class="severity medium">medio</i></div>
+            <div><b>Redes sociales</b><i class="severity high">alto</i></div>
+          </div>
+        </article>
+
+        <article class="policy-engine">
+          <div class="panel-title">
+            <span>Policy Engine</span>
+            <strong>Decision NGFW</strong>
+          </div>
+          <div class="engine-stage stage-user">
+            <small>01</small>
+            <b>Usuario</b>
+          </div>
+          <div class="engine-stage stage-app">
+            <small>02</small>
+            <b>Aplicacion</b>
+          </div>
+          <div class="engine-stage stage-cat">
+            <small>03</small>
+            <b>Categoria</b>
+          </div>
+          <div class="engine-stage stage-action">
+            <small>04</small>
+            <b>Accion</b>
+          </div>
+          <span class="engine-line line-a"></span>
+          <span class="engine-line line-b"></span>
+          <span class="engine-line line-c"></span>
+          <div class="decision-chip allow">permitir</div>
+          <div class="decision-chip deny">bloquear</div>
+        </article>
+
+        <article class="inspection-console">
+          <div class="panel-title">
+            <span>Inspection Mode</span>
+            <strong>Flow vs Proxy</strong>
+          </div>
+          <div class="gauge-wrap">
+            <div class="gauge">
+              <span class="gauge-needle"></span>
+              <b>86</b>
+              <small>deep scan</small>
+            </div>
+          </div>
+          <div class="inspection-metrics">
+            <div><span>Flow-based</span><b>latencia baja</b></div>
+            <div><span>Proxy-based</span><b>analisis profundo</b></div>
+            <div><span>SSL inspection</span><b>contenido cifrado</b></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="operations section" id="operaciones">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Operaciones HT08</p>
+        <h2>Configuracion explicada paso a paso</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="timeline-index">1</div>
+          <div>
+            <h3>Seleccionar modo de inspeccion</h3>
+            <p>Para analisis profundo, el PDF propone usar modo proxy.</p>
+            <pre><code>config system global
+set inspection-mode proxy
+end</code></pre>
+          </div>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="timeline-index">2</div>
+          <div>
+            <h3>Activar NGFW Policy-Based</h3>
+            <p>Este modo permite que las reglas web se basen en identidad, aplicacion y categoria de contenido.</p>
+            <pre><code>config system settings
+set ngfw-mode policy-based
+end</code></pre>
+          </div>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="timeline-index">3</div>
+          <div>
+            <h3>Aplicar perfil de filtrado web</h3>
+            <p>La politica acepta el trafico permitido, habilita UTM y usa el perfil corporativo de Web Filter.</p>
+            <pre><code>config firewall policy
+edit 1
+set name "Filtrado-Web-Corporativo"
+set srcintf "lan"
+set dstintf "wan"
+set action accept
+set utm-status enable
+set webfilter-profile "corporativo"
+next
+end</code></pre>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase section" id="showcase">
+      <video class="shared-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="3141210-uhd_3840_2160_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="shared-video-overlay" aria-hidden="true"></div>
+      <div class="section-heading reveal">
+        <p class="eyebrow">Showcase interactivo</p>
+        <h2>Del documento a la practica</h2>
+      </div>
+      <div class="showcase-layout">
+        <div class="console-card reveal tilt-card">
+          <div class="console-top">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="metric-row">
+            <strong>Filtro Web</strong>
+            <span>Activo</span>
+          </div>
+          <div class="metric-row">
+            <strong>Inspeccion</strong>
+            <span>Proxy</span>
+          </div>
+          <div class="metric-row">
+            <strong>Modo NGFW</strong>
+            <span>Policy-Based</span>
+          </div>
+          <div class="scan-lines">
+            <i style="width: 92%"></i>
+            <i style="width: 76%"></i>
+            <i style="width: 88%"></i>
+          </div>
+        </div>
+        <div class="pdf-panel reveal">
+          <iframe src="HT08.pdf" title="Vista previa del PDF HT08"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="deep-dive section" id="profundizacion">
+      <video class="shared-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="12812603_1920_1080_30fps.mp4" type="video/mp4">
+      </video>
+      <div class="shared-video-overlay" aria-hidden="true"></div>
+      <div class="section-heading reveal">
+        <p class="eyebrow">Profundizacion tecnica</p>
+        <h2>Buenas practicas para una politica web mas madura</h2>
+      </div>
+      <div class="deep-grid">
+        <article class="deep-card reveal">
+          <div class="card-motion profile-motion" aria-hidden="true">
+            <span class="person person-a"></span>
+            <span class="person person-b"></span>
+            <span class="person person-c"></span>
+            <i class="profile-ring"></i>
+          </div>
+          <h3>Perfiles por area</h3>
+          <p>No todos los usuarios necesitan las mismas reglas. Marketing, TI, direccion y estudiantes pueden tener perfiles distintos.</p>
+        </article>
+        <article class="deep-card reveal">
+          <div class="card-motion exception-motion" aria-hidden="true">
+            <span class="doc-sheet"></span>
+            <span class="doc-check"></span>
+            <i class="doc-scan"></i>
+          </div>
+          <h3>Excepciones documentadas</h3>
+          <p>Cuando un sitio legitimo se bloquee, conviene registrar el motivo, usuario, categoria y fecha de revision.</p>
+        </article>
+        <article class="deep-card reveal">
+          <div class="card-motion logs-motion" aria-hidden="true">
+            <span class="monitor-frame"></span>
+            <i class="log-line log-a"></i>
+            <i class="log-line log-b"></i>
+            <i class="log-line log-c"></i>
+            <b class="report-dot"></b>
+          </div>
+          <h3>Logs y reportes</h3>
+          <p>Los registros permiten descubrir patrones de riesgo, justificar decisiones y medir el impacto del filtrado web.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cyber-terminal section" id="terminal">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Terminal interactiva</p>
+        <h2>Simulacion de escaneo y politicas activas</h2>
+      </div>
+      <div class="terminal-window reveal">
+        <div class="terminal-top"><span></span><span></span><span></span><b>fortigate-secops://web-filter</b></div>
+        <pre id="terminalText"></pre>
+      </div>
+    </section>
+
+    <section class="cyber-os section" id="cyberos">
+      <video class="cyberos-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="14492092_1920_1080_30fps.mp4" type="video/mp4">
+      </video>
+      <div class="cyberos-video-overlay" aria-hidden="true"></div>
+      <div class="section-heading reveal">
+        <p class="eyebrow">Mini sistema operativo</p>
+        <h2>Interfaz cyberpunk para administrar seguridad web</h2>
+      </div>
+      <div class="os-desktop reveal">
+        <div class="os-topbar">
+          <div class="os-dots"><span></span><span></span><span></span></div>
+          <strong>FortiGate Control OS</strong>
+          <small>live policy workspace</small>
+        </div>
+        <aside class="os-sidebar">
+          <button class="os-nav-item active" type="button" data-os-view="policies" aria-pressed="true">
+            <span>Policies</span>
+            <small>3 perfiles</small>
+            <i class="nav-bars"><b style="height: 72%"></b><b style="height: 92%"></b><b style="height: 58%"></b></i>
+          </button>
+          <button class="os-nav-item" type="button" data-os-view="web" aria-pressed="false">
+            <span>Web Filter</span>
+            <small>78 categorias</small>
+            <i class="nav-donut"></i>
+          </button>
+          <button class="os-nav-item" type="button" data-os-view="ssl" aria-pressed="false">
+            <span>SSL Scan</span>
+            <small>proxy deep</small>
+            <i class="nav-shield"></i>
+          </button>
+          <button class="os-nav-item" type="button" data-os-view="reports" aria-pressed="false">
+            <span>Reports</span>
+            <small>riesgo / impacto</small>
+            <i class="nav-trend"><b></b><b></b><b></b></i>
+          </button>
+        </aside>
+        <div class="os-window win-policy">
+          <div class="window-title">
+            <strong id="osPanelTitle">Policy Manager</strong>
+            <span id="osPanelBadge">UTM enabled</span>
+          </div>
+          <div class="policy-stack" id="osPanelStack">
+            <i style="--fill: 88%"><b>Marketing</b><span>Social limitado</span></i>
+            <i style="--fill: 96%"><b>TI</b><span>Acceso avanzado</span></i>
+            <i style="--fill: 74%"><b>Estudiantes</b><span>Streaming bloqueado</span></i>
+          </div>
+        </div>
+        <div class="os-window win-widget">
+          <span class="score-ring"></span>
+          <strong>Security Score</strong>
+          <b id="osScoreValue">96%</b>
+          <small id="osScoreLabel">risk posture stable</small>
+        </div>
+        <div class="os-window win-logs">
+          <div class="window-title">
+            <strong>Event Logs</strong>
+            <span id="osLogsBadge">real time</span>
+          </div>
+          <div id="osLogsList">
+            <p><i></i> malware.blocked</p>
+            <p><i></i> social.media.denied</p>
+            <p><i></i> ssl.deep.scan</p>
+          </div>
+        </div>
+        <div class="os-window win-model">
+          <div class="os-model-visual model-policy" id="osModelVisual" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="os-model-copy">
+            <div class="window-title">
+              <strong id="osModelTitle">Modelo integrado</strong>
+              <span id="osModelTag">policy-based</span>
+            </div>
+            <p id="osModelDescription">Representa como FortiGate aplica perfiles distintos por area para controlar categorias web, aplicaciones y excepciones.</p>
+            <div class="os-examples" id="osExamples">
+              <b>Marketing: redes sociales limitadas</b>
+              <b>TI: acceso tecnico ampliado</b>
+              <b>Estudiantes: streaming bloqueado</b>
+            </div>
+          </div>
+        </div>
+        <div class="os-traffic" id="osTraffic">
+          <span style="width: 100%"></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="reflection section" id="reflexion">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Reflexion final</p>
+        <h2>Preguntas con respuestas aplicadas</h2>
+      </div>
+      <div class="answer-grid">
+        <article class="answer-card reveal">
+          <div class="answer-visual shield-model">
+            <img src="https://cdn.pixabay.com/photo/2022/04/08/12/37/cybersecurity-7119401_1280.jpg" alt="Ilustracion de escudo de ciberseguridad">
+            <span></span>
+          </div>
+          <div>
+            <h3>¿Que funcion cumple el modo de inspeccion?</h3>
+            <p>Define como FortiGate analiza el trafico. Flow-based revisa paquetes con menor latencia; Proxy-based reconstruye sesiones y permite inspeccion mas profunda para aplicar filtrado web con mayor detalle.</p>
+          </div>
+        </article>
+        <article class="answer-card reveal">
+          <div class="answer-visual ssl-model">
+            <div class="lock-3d"></div>
+          </div>
+          <div>
+            <h3>¿Que ventajas ofrece la inspeccion SSL?</h3>
+            <p>Ayuda a controlar contenido dentro de conexiones HTTPS. Sin inspeccion SSL, parte del trafico cifrado puede pasar sin evaluarse por categoria, reputacion o aplicacion.</p>
+          </div>
+        </article>
+        <article class="answer-card reveal">
+          <div class="answer-visual tune-model">
+            <div class="sliders-3d"><i></i><i></i><i></i></div>
+          </div>
+          <div>
+            <h3>¿Como evitar falsos positivos?</h3>
+            <p>Se deben revisar logs, crear listas de excepcion, probar reglas por grupos piloto y documentar cambios. La politica debe bloquear riesgos sin interrumpir sitios necesarios para el trabajo.</p>
+          </div>
+        </article>
+        <article class="answer-card reveal">
+          <div class="answer-visual sector-model">
+            <div class="building-3d"><i></i><i></i><i></i></div>
+          </div>
+          <div>
+            <h3>¿Como adaptarlo a educacion o gobierno?</h3>
+            <p>En educacion se prioriza aprendizaje seguro, bloqueo de contenido adulto y horarios flexibles. En gobierno se refuerzan trazabilidad, cumplimiento, registros y acceso por roles.</p>
+          </div>
+        </article>
+        <article class="answer-card wide reveal">
+          <div class="answer-visual network-model">
+            <div class="mesh-3d"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div>
+            <h3>¿Como mejora futuras redes virtualizadas?</h3>
+            <p>La practica enseña a diseñar politicas repetibles, medibles y escalables. En redes virtualizadas, esto facilita migraciones, segmentacion, auditorias y despliegues consistentes en nuevos entornos.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <strong>HT08 | FortiGate Web Filtering</strong>
+    <span>Landing page futurista creada con HTML, CSS y JavaScript.</span>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
