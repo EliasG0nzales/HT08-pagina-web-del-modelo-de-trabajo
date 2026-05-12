@@ -498,7 +498,7 @@ document.addEventListener("keydown", event => {
 
 window.addEventListener("resize", resizeCanvas);
 window.addEventListener("load", () => {
-  setTimeout(() => preloader?.classList.add("hidden"), 900);
+  setTimeout(() => preloader?.classList.add("hidden"), 4200);
 });
 
 resizeCanvas();
