@@ -11,12 +11,62 @@
 </head>
 <body>
   <div class="preloader" id="preloader">
+    <video class="preloader-bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="stellaron-honkai-star-rail-moewalls-com.mp4" type="video/mp4">
+    </video>
+    <div class="preloader-video-overlay" aria-hidden="true"></div>
     <div class="preloader-core">
-      <div class="preloader-logo">FG</div>
-      <div class="preloader-ring"></div>
+      <div class="loader" aria-hidden="true">
+        <div class="pattern-1">
+          <div class="pattern-1-shade"></div>
+        </div>
+        <div class="pattern-2"></div>
+      </div>
+      <svg class="preloader-ring spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 66" aria-hidden="true">
+        <defs>
+          <linearGradient id="preloaderGradient">
+            <stop stop-opacity="1" stop-color="#fe0000" offset="0%"></stop>
+            <stop stop-opacity="0" stop-color="#af3dff" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+        <circle class="path" stroke="url(#preloaderGradient)" r="20" cy="33" cx="33" stroke-width="1.2" fill="transparent"></circle>
+      </svg>
     </div>
     <div class="preloader-bar"><span></span></div>
-    <p>Initializing Security Systems...</p>
+    <p class="loading-text" aria-label="Initializing Security Systems...">
+      <span class="letter letter1">I</span>
+      <span class="letter letter2">n</span>
+      <span class="letter letter3">i</span>
+      <span class="letter letter4">t</span>
+      <span class="letter letter5">i</span>
+      <span class="letter letter6">a</span>
+      <span class="letter letter7">l</span>
+      <span class="letter letter8">i</span>
+      <span class="letter letter9">z</span>
+      <span class="letter letter10">i</span>
+      <span class="letter letter11">n</span>
+      <span class="letter letter12">g</span>
+      <span class="letter space">&nbsp;</span>
+      <span class="letter letter13">S</span>
+      <span class="letter letter14">e</span>
+      <span class="letter letter15">c</span>
+      <span class="letter letter16">u</span>
+      <span class="letter letter17">r</span>
+      <span class="letter letter18">i</span>
+      <span class="letter letter19">t</span>
+      <span class="letter letter20">y</span>
+      <span class="letter space">&nbsp;</span>
+      <span class="letter letter21">S</span>
+      <span class="letter letter22">y</span>
+      <span class="letter letter23">s</span>
+      <span class="letter letter24">t</span>
+      <span class="letter letter25">e</span>
+      <span class="letter letter26">m</span>
+      <span class="letter letter27">s</span>
+      <span class="letter letter28">.</span>
+      <span class="letter letter29">.</span>
+      <span class="letter letter30">.</span>
+    </p>
   </div>
 
   <div class="cursor-glow" id="cursorGlow"></div>
@@ -130,11 +180,8 @@
         </div>
 
         <div class="threat-panel">
-          <div class="radar">
-            <span></span>
-            <i class="ping ping-a"></i>
-            <i class="ping ping-b"></i>
-            <i class="ping ping-c"></i>
+          <div class="radar" aria-hidden="true">
+            <div class="radar-targets"></div>
           </div>
           <div>
             <h3>Radar de inspeccion</h3>
